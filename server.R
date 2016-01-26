@@ -1,5 +1,4 @@
 library(shiny)
-library(RCurl)
 library(caret)
 data(mtcars)
 

@@ -1,0 +1,63 @@
+---
+title       : Vehicle MPG Estimator Application
+subtitle    : Developing Data Poducts - Course Project
+author      : Chris Horvath
+job         : data
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Vehicle MPG Estimator 
+
+- The development of a model to estimate the MPG for vehicles is valuble to the general publish and that was accomplish by leveraging the R Shiny library and hosted by the RStudio shiny.io platform.
+- Review application with following link:
+*https://chrishorvath11.shinyapps.io/Developing-Data-Products---Course-Project/*
+- This application will provide simple access to this valuble data.
+
+---
+
+## Input Data and Regression Methods Used
+
+### Motor Trend Car Road Tests
+
+> Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391-411.
+
+### Linear Regression
+```{r}
+data(mtcars)
+modFit <- lm(formula = mpg ~ cyl + hp + wt + am, data = mtcars)
+```
+- See the Full Model evaluation at:
+*https://github.com/chrishorvath/Developing-Data-Products---Course-Project*
+
+---
+
+## Model details
+
+```{r, echo=FALSE}
+summary(modFit)
+```
+
+---
+
+## R dataset - mtcars
+
+**A data frame with 32 observations on 11 variables.**
+
+| Index | Field | Detail |
+------- | ----- | ------ |
+| [, 1] | mpg | Miles/(US) gallon |
+| [, 2]  | cyl | Number of cylinders |
+| [, 3]	| disp | Displacement (cu.in.) |
+| [, 4]	| hp | Gross horsepower |
+| [, 5]	| drat | Rear axle ratio |
+| [, 6]	| wt | Weight (lb/1000) |
+| [, 7]	| qsec | 1/4 mile time |
+| [, 8]	| vs | V/S |
+| [, 9]	| am | Transmission (0 = automatic, 1 = manual) |
+| [,10]	| gear | Number of forward gears |
+| [,11]	| carb | Number of carburetors |
