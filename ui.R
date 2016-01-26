@@ -1,4 +1,6 @@
 library(shiny)
+require(markdown)
+require(data.table)
 library(caret)
 shinyUI (
   navbarPage("Vehicle MPG Predictor",
@@ -16,6 +18,12 @@ shinyUI (
           textOutput("prediction"),
           textOutput("Results")
         )),
+    tabPanel("Model Residuals plots",
+             mainPanel(
+               h3("Linear Regression Model Using formula = mpg ~ cyl + hp + wt + am"),
+                  plotOutput("Data")
+                 ) # end of "Dataset" tab panel
+    ),
     tabPanel("Documentation",
              mainPanel(
                includeMarkdown("include.md")
